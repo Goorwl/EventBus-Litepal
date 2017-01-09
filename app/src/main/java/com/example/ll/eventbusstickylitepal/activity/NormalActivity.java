@@ -9,7 +9,6 @@ import com.example.ll.eventbusstickylitepal.event.EventBean;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 public class NormalActivity extends BaseAcitivity {
 
@@ -23,7 +22,8 @@ public class NormalActivity extends BaseAcitivity {
         EventBus.getDefault().register(NormalActivity.this);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    //注解必须写
+    @Subscribe()
     public void showNormal(EventBean bean) {
         String s = mTvShow.getText().toString();
         int res = Integer.valueOf(s) + bean.number;
